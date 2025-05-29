@@ -3,10 +3,10 @@ from .models import Task
 
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
-    filter = ('is_deleted')
-    list_display = ('id', 'title', 'description', 'created_at', 'updated_at', 'completed')
+
+    list_display = ('id', 'title', 'description', 'created_at', 'updated_at', 'completed','is_deleted')
     search_fields = ('title', 'description')
-    list_filter = ('created_at', 'updated_at')
+    list_filter = ('created_at', 'updated_at', 'completed', 'is_deleted')
     ordering = ('-created_at',)
     readonly_fields = ('created_at', 'updated_at')
     fieldsets = (
@@ -18,4 +18,4 @@ class TaskAdmin(admin.ModelAdmin):
             'classes': ('collapse',)
         }),
     )
-    
+

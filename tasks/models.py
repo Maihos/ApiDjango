@@ -13,6 +13,7 @@ class SoftDeleteMixin(models.Model):
             self.save()
         else:
             super().delete(using, keep_parents)
+    
 
     def restore(self):
         """Restaura um registro marcado como deletado."""
